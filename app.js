@@ -127,7 +127,7 @@ class PizzaChecker extends React.Component {
         <div className='background'></div>
             <div className='wrapper'>
                 <h1>Pizza Checker</h1>
-                <p>Check if you sould order one larger pizza or more smaller ones.</p>
+                <p>Check if you should order one larger pizza or more smaller ones.</p>
                 {this.state.validated === false && <p className='error'>Fill in all fields</p>}
                 <div className='calculator'>
                     <Pizza name='First option' change={this.handleChange} pizza='first' amount={this.state.firstPizza.amount} radius={this.state.firstPizza.radius}/>
