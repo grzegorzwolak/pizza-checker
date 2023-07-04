@@ -1,11 +1,11 @@
-const Pizza = (props) => {
+const Pizza = ({name, amount, radius, pizza, change}) => {
 return (
     <div className='options'>
-        <h3>{props.name}</h3>
+        <h3>{name}</h3>
         <label>How many pizzas</label>
-        <input type="number" min="1" value={props.amount} onChange={e => props.change(e, 'amount', props.pizza)} />
+        <input type="number" min="1" value={amount} onChange={e => change(e, 'amount', pizza)} />
         <label>Radius in cm</label>
-        <input type="number" min="1" value={props.radius} onChange={e => props.change(e, 'radius', props.pizza)} />
+        <input type="number" min="1" value={radius} onChange={e => change(e, 'radius', pizza)} />
     </div>
 )
 }
@@ -121,25 +121,28 @@ class PizzaChecker extends React.Component {
         })
     }
 
-    render() {
+    render({validated, firstPizza, secondPizza, result, percentageDifferenceResult} = this.state) {
        return (
         <>
         <div className='background'></div>
             <div className='wrapper'>
                 <h1>Pizza Checker</h1>
                 <p>Check if you should order one larger pizza or more smaller ones.</p>
-                {this.state.validated === false && <p className='error'>Fill in all fields</p>}
+                {validated === false && <p className='error'>Fill in all fields</p>}
                 <div className='calculator'>
-                    <Pizza name='First option' change={this.handleChange} pizza='first' amount={this.state.firstPizza.amount} radius={this.state.firstPizza.radius}/>
-                    <Pizza name='Second option' change={this.handleChange} pizza='second' amount={this.state.secondPizza.amount} radius={this.state.secondPizza.radius}/>
+                    <Pizza name='First option' change={this.handleChange} pizza='first' amount={firstPizza.amount} radius={firstPizza.radius}/>
+                    <Pizza name='Second option' change={this.handleChange} pizza='second' amount={secondPizza.amount} radius={secondPizza.radius}/>
                 </div>
-                {this.state.result !== null && <p className='result'>You should choose {this.state.result}. This pizza is {this.state.percentageDifferenceResult} % bigger</p>}
-                {this.state.validated !== true && <button className='check-btn' onClick={this.handleCheckFormFilled}>Check</button>}
-                {this.state.validated === true && <button className='clear-btn' onClick={this.handleClear}>Clear</button> }
+                {result !== null && <p className='result'>You should choose {result}. This pizza is {percentageDifferenceResult} % bigger</p>}
+                {validated !== true && <button className='check-btn' onClick={this.handleCheckFormFilled}>Check</button>}
+                {validated === true && <button className='clear-btn' onClick={this.handleClear}>Clear</button> }
             </div>
             </>
         )
     }
 }
 
-ReactDOM.render(<PizzaChecker/>, document.getElementById('root'))
+const container = document.getElementById('root')
+const root = ReactDOM.createRoot(container)
+
+root.render(<PizzaChecker />)
