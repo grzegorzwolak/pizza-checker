@@ -3,9 +3,9 @@ return (
     <div className='options'>
         <h3>{name}</h3>
         <label>How many pizzas</label>
-        <input type="number" min="1" value={amount} onChange={e => change(e, 'amount', pizza)} />
+        <input type="number" min="1" value={amount} id={pizza} onChange={e => change(e, 'amount', pizza)} />
         <label>Radius in cm</label>
-        <input type="number" min="1" value={radius} onChange={e => change(e, 'radius', pizza)} />
+        <input type="number" min="1" value={radius} name={pizza} onChange={e => change(e, 'radius', pizza)} />
     </div>
 )
 }
