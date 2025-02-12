@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 
 
-def success(url):
+def Second_Option_Is_Better(url):
     driver = webdriver.Chrome()
     driver.get(url)
 
@@ -44,4 +44,4 @@ def success(url):
     driver.quit()
 
 
-success(URL)
+Second_Option_Is_Better(URL)
