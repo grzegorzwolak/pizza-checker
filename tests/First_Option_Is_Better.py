@@ -2,9 +2,7 @@ from config import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-
-
-def Second_Option_Is_Better(url):
+def First_Option_Is_Better(url):
     driver = webdriver.Chrome()
     driver.get(url)
 
@@ -14,10 +12,10 @@ def Second_Option_Is_Better(url):
     second_option_amount_input = driver.find_element(By.ID, 'second')
     second_option_radius_input = driver.find_element(By.NAME, 'second')
 
-    first_option_amount_value = '2'
+    first_option_amount_value = '3'
     first_option_radius_value = '32'
-    second_option_amount_value = '1'
-    second_option_radius_value = '55'
+    second_option_amount_value = '2'
+    second_option_radius_value = '35'
 
     try:
 
@@ -39,9 +37,9 @@ def Second_Option_Is_Better(url):
 
         print(Exception)
 
-        driver.save_screenshot(f'tests/screenshots/Second_Option_Is_Better_{time}.png')
+        driver.save_screenshot(f'tests/screenshots/First_Option_Is_Better_{time}.png')
 
     driver.quit()
 
 
-Second_Option_Is_Better(URL)
+First_Option_Is_Better(URL)
