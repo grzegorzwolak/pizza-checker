@@ -10,10 +10,10 @@ During the creation of this site I used:
 This is my first project in React.js with automated tests.
 
 To run tests:
-
-1. install requirements from file tests/requirements.txt,
-2. run index.html file using ex. LiveServer (extension in VS Code)
-3. enter your localhost address in tests/config.py (URL variable).
+1. (optional) create python virtual environment in pizza-checker/tests directory
+2. install requirements from file pizza-checker/tests/requirements.txt,
+3. run index.html file using e.g. LiveServer (extension in VS Code)
+4. enter your localhost address in tests/config.py (URL variable).
 
 It's a simple pizza checker, allowing you to check which pizza you should order.
 
