@@ -6,6 +6,8 @@ def First_Option_Is_Better(url):
     driver = webdriver.Chrome()
     driver.get(url)
 
+    driver.implicitly_wait(0.5)
+
     first_option_amount_input = driver.find_element(By.ID, 'first')
     first_option_radius_input = driver.find_element(By.NAME, 'first')
 
@@ -36,10 +38,13 @@ def First_Option_Is_Better(url):
     except Exception:
 
         print(Exception)
-
-        driver.save_screenshot(f'tests/screenshots/First_Option_Is_Better_{time}.png')
+        screenshot_path = 'pizza-checker/tests/screenshots/First_Option_Is_Better_' + str(time) + '.png'
+        driver.save_screenshot(screenshot_path)
+        
+    
 
     driver.quit()
 
 
 First_Option_Is_Better(URL)
+

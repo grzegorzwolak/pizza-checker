@@ -21,8 +21,9 @@ def All_Fields_Are_Empty(url):
     except Exception:
 
         print(Exception)
+        screenshot_path = 'pizza-checker/tests/screenshots/All_Fields_Are_Empty_' + str(time) + '.png'
+        driver.save_screenshot(screenshot_path)
 
-        driver.save_screenshot(f'tests/screenshots/All_Fields_Are_Empty_{time}.png')
 
     driver.quit()
 
